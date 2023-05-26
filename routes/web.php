@@ -19,5 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get("/crear",function () {
+    return view('crear');
+});
+
+Route::post("/crear",[AnimalController::class,"Insertar"]);
+
 Route::get("/animal",[AnimalController::class,"Listar"]);
 Route::get("/eliminar",[AnimalController::class,"Eliminar"]);

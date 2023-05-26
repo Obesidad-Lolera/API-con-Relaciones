@@ -29,12 +29,14 @@ class AnimalController extends Controller
 
         $animalito = new Animal();
 
-        $animalito -> nombre = "Rora";
-        $animalito -> cantidad_de_patas = 23;
-        $animalito -> especie = "pokémon";
-        $animalito -> cola = true;
+        $animalito -> nombre = $request ->post("nombre");
+        $animalito -> cantidad_de_patas = $request ->post("patas");
+        $animalito -> especie = $request ->post("especie");
+        $animalito -> cola = $request ->post("cola");
 
         $animalito -> save();
+
+        return redirect("/animal")->With("creado",true);
 
        
 

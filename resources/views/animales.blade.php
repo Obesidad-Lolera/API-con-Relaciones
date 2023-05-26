@@ -8,8 +8,13 @@
 </head>
 <body>
 
+    <a href="/crear">Crear animalito</a>
     @if(session("eliminado"))
         <b>Animalito eliminado</b>
+    @endif
+
+    @if(session("creado"))
+        <b>Animalito Creado</b>
     @endif
     
     <table>
