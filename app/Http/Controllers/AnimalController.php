@@ -10,20 +10,18 @@ class AnimalController extends Controller
 {
 
     public function Listar(Request $request){
-        return view("animales",[
-            "animales" => Animal::all()
-        ]);
+        return Animal::all();
     }
 
-    public function Eliminar(Request $request){
-        $animal = Animal::find($request -> id);
+    public function ListarUno(Request $request, $id){
+        return Animal::findOrFail($id);
+    }
+
+    public function Eliminar(Request $request, $id){
+        $animal = Animal::findOrFail($id);
         $animal -> delete();
-
-        return redirect("/animal")->With("eliminado",true);
-                
-
-
-
+        
+        return [ "response" => "Object with ID $id deleted"];
     }
     public function Insertar(Request $request){
 
@@ -36,7 +34,7 @@ class AnimalController extends Controller
 
         $animalito -> save();
 
-        return redirect("/animal")->With("creado",true);
+        return $animalito;
 
        
 

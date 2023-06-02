@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\AnimalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +13,3 @@ use App\Http\Controllers\AnimalController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get("/crear",function () {
-    return view('crear');
-});
-
-Route::post("/crear",[AnimalController::class,"Insertar"]);
-
-Route::get("/animal",[AnimalController::class,"Listar"]);
-Route::get("/eliminar",[AnimalController::class,"Eliminar"]);

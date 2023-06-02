@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnimalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::prefix('v1')->group(function () {
+    Route::get("/animal",[AnimalController::class,"Listar"]);
+    Route::get("/animal/{d}/",[AnimalController::class,"ListarUno"]);
+    Route::post("/animal",[AnimalController::class,"Insertar"]);
+    Route::delete("/animal/{d}",[AnimalController::class,"Eliminar"]);
+});
+
