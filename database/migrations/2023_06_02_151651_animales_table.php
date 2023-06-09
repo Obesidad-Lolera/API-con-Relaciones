@@ -31,6 +31,7 @@ class AnimalesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('animales');
+
     }
 }
