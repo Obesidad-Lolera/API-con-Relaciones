@@ -35,8 +35,18 @@ class AnimalController extends Controller
         $animalito -> save();
 
         return $animalito;
+    }
 
-       
+    public function Modificar(Request $request, $id){
+        $animalito = Animal::findOrFail($id);
+        $animalito -> nombre = $request ->post("nombre");
+        $animalito -> cantidad_de_patas = $request ->post("patas");
+        $animalito -> especie = $request ->post("especie");
+        $animalito -> cola = $request ->post("cola");
+
+        $animalito -> save();
+
+        return $animalito;
 
     }
 }

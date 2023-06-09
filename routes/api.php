@@ -25,5 +25,7 @@ Route::prefix('v1')->group(function () {
     Route::get("/animal/{d}/",[AnimalController::class,"ListarUno"]);
     Route::post("/animal",[AnimalController::class,"Insertar"]);
     Route::delete("/animal/{d}",[AnimalController::class,"Eliminar"]);
+    Route::put("/animal/{d}",[AnimalController::class,"Modificar"]);
+
 });
 
