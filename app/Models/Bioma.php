@@ -6,14 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Animal extends Model
-{
-    use HasFactory;
-    use SoftDeletes;
-    protected $table = "animales";
 
-    public function Cachorros()
-    {
-        return $this->hasMany(Cachorro::class, "id_animal");
-    }
+class Bioma extends Model
+{
+    use SoftDeletes;
+    use HasFactory;
+
+    protected $fillable = ['nombre'];
 }

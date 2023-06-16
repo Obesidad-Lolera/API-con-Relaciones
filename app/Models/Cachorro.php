@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Animal extends Model
+class Cachorro extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $table = "animales";
 
-    public function Cachorros()
+    public function Animal()
     {
-        return $this->hasMany(Cachorro::class, "id_animal");
+        return $this->belongsTo(Animal::class, "id_animal");
     }
 }
