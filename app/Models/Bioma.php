@@ -13,4 +13,11 @@ class Bioma extends Model
     use HasFactory;
 
     protected $fillable = ['nombre'];
+
+
+    public function Animales()
+    {
+        return $this->belongsToMany(Animal::class,"habita");
+    }
 }
+

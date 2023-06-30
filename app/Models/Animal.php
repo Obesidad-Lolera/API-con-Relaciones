@@ -16,4 +16,10 @@ class Animal extends Model
     {
         return $this->hasMany(Cachorro::class, "id_animal");
     }
+
+
+    public function Biomas()
+    {
+        return $this->belongsToMany(Bioma::class, "habita");
+    }
 }

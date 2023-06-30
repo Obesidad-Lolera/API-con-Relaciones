@@ -15,6 +15,11 @@ class CreateHabitasTable extends Migration
     {
         Schema::create('habita', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("animal_id");
+            $table->unsignedBigInteger("bioma_id");
+            $table->foreign('animal_id')->references('id')->on('animales');
+            $table->foreign('bioma_id')->references('id')->on('biomas');
+            $table->unique(['animal_id','bioma_id']);
             $table->softDeletes();
             $table->timestamps();
         });
